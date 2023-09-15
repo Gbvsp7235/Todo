@@ -12,7 +12,7 @@ with login:
 
        if lsubmit:
            if lgmail and lpaswd :
-               with open("users.txt", 'r') as file_local:
+               with open("https://github.com/Gbvsp7235/Todo/blob/master/Todo/users.txt", 'r') as file_local:
                    lgp = lgmail+" "+lpaswd+"\n"
                    if lgp in file_local.readlines():
                        st.success('LogIn Successful')
