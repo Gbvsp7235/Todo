@@ -12,7 +12,7 @@ with login:
 
        if lsubmit:
            if lgmail and lpaswd :
-               file1 = open("C:\\Users\\gbvsa\\PycharmProjects\\pythonProject\\Todo\\users.txt", "r")
+               file1 = open("C:/Users/gbvsa/PycharmProjects/pythonProject/Todo/users.txt", "r")
                lgp = lgmail+" "+lpaswd+"\n"
                if lgp in file1.readlines():
                    st.success('LogIn Successful')
@@ -38,13 +38,13 @@ with signup:
                    if sgmail.__contains__(" ") or spaswd.__contains__(" "):
                        st.error('Email/Password not valid.', icon="🚨")
                    else:
-                       file1 = open("C:\\Users\\gbvsa\\PycharmProjects\\pythonProject\\Todo\\users.txt", "r")
+                       file1 = open("C:/Users/gbvsa/PycharmProjects/pythonProject/Todo/users.txt", "r")
                        sgp = sgmail+" "+spaswd+"\n"
                        if sgp in file1.readlines():
                            st.error('Email already Exists.', icon="🚨")
                            file1.close()
                        else:
-                           file1 = open("C:\\Users\\gbvsa\\PycharmProjects\\pythonProject\\Todo\\users.txt", "w")
+                           file1 = open("C:/Users/gbvsa/PycharmProjects/pythonProject/Todo/users.txt", "w")
                            file1.write(sgp)
                            file1.close()
                            st.success('Registered Successfully')
