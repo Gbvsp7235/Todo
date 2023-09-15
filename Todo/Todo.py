@@ -12,13 +12,12 @@ with login:
 
        if lsubmit:
            if lgmail and lpaswd :
-               file1 = open("C:/Users/gbvsa/PycharmProjects/pythonProject/Todo/users.txt", "r")
-               lgp = lgmail+" "+lpaswd+"\n"
-               if lgp in file1.readlines():
-                   st.success('LogIn Successful')
-                   file1.close()
-               else:
-                   st.error('Wrong Email/Password', icon="🚨")
+               with open("users.txt", 'r') as file_local:
+                   lgp = lgmail+" "+lpaswd+"\n"
+                   if lgp in file_local.readlines():
+                       st.success('LogIn Successful')
+                   else:
+                       st.error('Wrong Email/Password', icon="🚨")
 
            else:
                st.error('All Fields are required', icon="🚨")
@@ -38,16 +37,15 @@ with signup:
                    if sgmail.__contains__(" ") or spaswd.__contains__(" "):
                        st.error('Email/Password not valid.', icon="🚨")
                    else:
-                       file1 = open("C:/Users/gbvsa/PycharmProjects/pythonProject/Todo/users.txt", "r")
-                       sgp = sgmail+" "+spaswd+"\n"
-                       if sgp in file1.readlines():
-                           st.error('Email already Exists.', icon="🚨")
-                           file1.close()
-                       else:
-                           file1 = open("C:/Users/gbvsa/PycharmProjects/pythonProject/Todo/users.txt", "w")
-                           file1.write(sgp)
-                           file1.close()
-                           st.success('Registered Successfully')
+                       with open("users.txt", 'r') as file_local:
+                           sgp = sgmail+" "+spaswd+"\n"
+                           if sgp in file_local.readlines():
+                               st.error('Email already Exists.', icon="🚨")
+
+                           else:
+                               with open("users.txt", 'w') as file_local:
+                                   file_local.write(sgp)
+                                   st.success('Registered Successfully')
                else:
                    st.error('All Fields are required', icon="🚨")
 
